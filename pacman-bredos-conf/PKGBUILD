@@ -1,0 +1,16 @@
+pkgname="pacman-bredos-conf"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc=" customized pacman conf to add BredOS repository"
+arch=("aarch64")
+depends=("pacman" "bredos-mirrorlist" "bredos-keyring")
+license=("custom")
+source=("pacman.conf")
+sha512sums=("SKIP")
+
+package() {
+  mkdir -p "${pkgdir}/etc"
+  cp "${srcdir}/pacman.conf" "${pkgdir}/etc/pacman.conf"
+  chmod 644 "${pkgdir}/etc/pacman.conf"
+}
+
