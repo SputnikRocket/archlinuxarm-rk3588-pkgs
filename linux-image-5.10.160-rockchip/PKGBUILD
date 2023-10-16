@@ -1,0 +1,44 @@
+# Maintainer: Joshua-Riek
+# Packager: SputnikRocket
+pkgname=linux-image-5.10.160-rockchip
+pkgver=5.10.160
+pkgrel=15
+pkgdesc="Linux kernel, version 5.10.160 for rockchip rk3588. This package contains the Linux kernel, modules, and mkinitcpio preset"
+arch=('aarch64')
+url=""
+license=('')
+groups=('')
+options=('!strip' '!emptydirs')
+install=${pkgname}.install
+source=(
+	"https://launchpad.net/~jjriek/+archive/ubuntu/rockchip/+files/linux-image-5.10.160-rockchip_5.10.160-15_arm64.deb"
+	'linux-5.10.160-rockchip.preset'
+)
+sha512sums=(
+	'3aa6524df679988cf91980f2f6ad67e869e66f9ad9d70c33df4ab15389cc67f9c50621cc42a8ab7780846fcf2d9ffa870a3a9c1f7326c441de014e7ce6d8ecb2'
+	'ac5fb1fd143e1fcb337768a32952f8310620429404f194f1d0a16e6089e02d4db877796957b5fdcea89a5c94f5c124519cca614b54217fc5f0da836793016bb8'
+)
+
+package(){
+
+	# Extract package data
+	tar -xI unzstd -f data.tar.zst -C "${pkgdir}"
+	
+	#add mkinitcpio
+	mkdir -p "${pkgdir}/etc/mkinitcpio.d"
+	cp "${srcdir}/linux-5.10.160-rockchip.preset" "${pkgdir}/etc/mkinitcpio.d/linux-5.10.160-rockchip.preset"
+	chmod 644 "${pkgdir}/etc/mkinitcpio.d/linux-5.10.160-rockchip.preset"
+	
+	#copy dtbs to correct path
+	mkdir -p "${pkgdir}/boot/dtbs/rockchip"
+	cp -r ${pkgdir}/usr/lib/linux-image-5.10.160-rockchip/rockchip/* "${pkgdir}/boot/dtbs/rockchip/"
+
+	# Fix directory structure differences
+	cd "${pkgdir}"
+
+	install -D -m644 "usr/share/doc/linux-image-5.10.160-rockchip/copyright" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	mkdir -p usr/lib 2> /dev/null; mv lib/* usr/lib; rm -rf lib
+
+	cd ..
+
+}

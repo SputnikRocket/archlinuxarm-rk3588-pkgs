@@ -1,0 +1,9 @@
+# mkinitcpio preset file for rk3588 kernel
+
+ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-5.10.160-rockchip"
+
+PRESETS=('default')
+
+default_image="/boot/initramfs-5.10.160-rockchip.img"
+

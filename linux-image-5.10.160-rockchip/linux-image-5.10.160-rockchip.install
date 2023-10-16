@@ -1,0 +1,13 @@
+post_install() {
+	# update initramfs
+	mkinitcpio -P
+}
+
+post_upgrade() {
+	post_install
+}
+
+post_remove() {
+	# remove initramfs
+	rm -f /boot/initramfs-5.10.160-rockchip.img
+}
