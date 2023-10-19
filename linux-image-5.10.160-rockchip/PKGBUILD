@@ -10,11 +10,11 @@ groups=('')
 options=('!strip' '!emptydirs')
 install=${pkgname}.install
 source=(
-	"https://launchpad.net/~jjriek/+archive/ubuntu/rockchip/+build/26744068/+files/linux-image-5.10.160-rockchip_5.10.160-14_arm64.deb"
+	"https://launchpad.net/~jjriek/+archive/ubuntu/rockchip/+files/linux-image-5.10.160-rockchip_5.10.160-15_arm64.deb"
 	'linux-5.10.160-rockchip.preset'
 )
 sha512sums=(
-	'b170dd10391073667f926367ba961347c636213804032979b0c661cc7522cadb20aef9c454af0f412aee97ba6492754afb9c7b2018ec567b6e08ff6278cc0c7d'
+	'3aa6524df679988cf91980f2f6ad67e869e66f9ad9d70c33df4ab15389cc67f9c50621cc42a8ab7780846fcf2d9ffa870a3a9c1f7326c441de014e7ce6d8ecb2'
 	'ac5fb1fd143e1fcb337768a32952f8310620429404f194f1d0a16e6089e02d4db877796957b5fdcea89a5c94f5c124519cca614b54217fc5f0da836793016bb8'
 )
 
