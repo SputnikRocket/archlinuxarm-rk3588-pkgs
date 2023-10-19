@@ -1,7 +1,7 @@
 # Maintainer: SputnikRocket, Joshua-Riek
 pkgname=linux-image-5.10.160-rockchip
 pkgver=5.10.160
-pkgrel=14
+pkgrel=15
 pkgdesc="Linux kernel, version 5.10.160 for rockchip rk3588. This package contains the Linux kernel, modules, and mkinitcpio preset"
 arch=('aarch64')
 url=""
